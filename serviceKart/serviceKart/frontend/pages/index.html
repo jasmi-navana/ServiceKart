@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ServiceKart - Home Services, Made Easy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #007aff;
+      --text: #333;
+      --bg-light: #f9f9f9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    header h1 {
+      color: white;
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 40px;
+      background: #fff;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      max-width: 550px;
+    }
+
+    .hero-text h2 {
+      font-size: 2.5rem;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons a {
+      display: inline-block;
+      margin: 10px 10px 0 0;
+      padding: 12px 24px;
+      border-radius: 30px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .hero-buttons a:hover {
+      background: #005fcc;
+    }
+
+    .hero img {
+      max-width: 800px; /* Increased image size */
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .why {
+      background: var(--bg-light);
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .why h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .card img {
+      width: 80%;
+      height: 250px; /* Decreased image size */
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    footer {
+      background: var(--primary);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero img {
+        margin-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ServiceKart</h1>
+    <nav>
+      <a href="login.html">Login</a>
+      <a href="#why-section">About</a>
+      <a href="../pages/booking.html">Services</a>
+      <a href="../pages/feedback.html">Feedback</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Home Services at Your Doorstep</h2>
+      <p>From plumbing to beauty services, book trusted professionals instantly. Are you a user or a service agent? Join us today.</p>
+      <div class="hero-buttons">
+        <a href="register.html?role=user">Register as User</a>
+        <a href="agent-register.html">Register as Agent</a>
+      </div>
+    </div>
+    <img src="https://d27vg8jo26ejl7.cloudfront.net/images/partner_registration/ru-service-provider.png" alt="Professional Cleaner" />
+  </section>
+
+  <section class="why" id="why-section">
+    <h3>Why Choose ServiceKart?</h3>
+    <div class="cards">
+      <div class="card">
+        <img src="https://t4.ftcdn.net/jpg/02/36/57/51/360_F_236575115_wwupHgVDlDpPHYn2sqaOe5GFNOegJDP6.jpg" alt="Verified Agents">
+        <h4>Verified Professionals</h4>
+        <p>Our agents are background checked, skilled, and reviewed to ensure quality service.</p>
+      </div>
+      <div class="card">
+        <img src="https://guardiansinfotech.com/assets/images/products/home-services.png" alt="Easy Booking">
+        <h4>Instant Booking</h4>
+        <p>Book services with just a few clicks. Our system ensures quick and simple booking.</p>
+      </div>
+      <div class="card">
+        <img src="https://media.istockphoto.com/id/1222070539/vector/24-7-service-signage-template-illustration-design-vector-eps-10.jpg?s=612x612&w=0&k=20&c=pLXhf6FeoZXBrJcI0ty2EwwVMDxBaXS-n-vMXmF7s2k=" alt="Customer Support">
+        <h4>24/7 Customer Support</h4>
+        <p>Need help or have questions? Our support team is always available for you.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 ServiceKart. All rights reserved.
+  </footer>
+
+</body>
+</html>

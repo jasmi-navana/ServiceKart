@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Registration - ServiceKart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: white;
+      background-size: cover;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255, 255, 255, 0.6);
+      z-index: -1;
+    }
+
+    header, footer {
+      width: 100%;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 450px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 2rem;
+      color: #050505;
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #0e0d0d;
+    }
+
+    form input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: #f9f9f9;
+      color: #333;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.3s ease;
+    }
+
+    form input:focus {
+      border-color: #005fcc;
+      background: #fff;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 25px;
+      border: none;
+      border-radius: 30px;
+      background: #005fcc;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: white;
+      color: #005fcc;
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div data-include="../components/header.html"></div>
+
+  <main>
+    <div class="container">
+      <h2>Create Your Account</h2>
+      <form id="userRegisterForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="10-digit number" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit" class="btn">Register</button>
+      </form>
+    </div>
+  </main>
+
+  <div data-include="../components/footer.html"></div>
+
+  <script>
+    // Load header and footer
+    document.addEventListener("DOMContentLoaded", function () {
+      const includes = document.querySelectorAll('[data-include]');
+      includes.forEach(el => {
+        const file = el.getAttribute('data-include');
+        fetch(file)
+          .then(response => response.text())
+          .then(data => {
+            el.innerHTML = data;
+          });
+      });
+
+      // Registration Form Handler
+      const form = document.getElementById("userRegisterForm");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const password = document.getElementById("password").value;
+
+        if (!name || !email || !phone || !password) {
+          alert("Please fill in all fields.");
+          return;
+        }
+
+        // Simulate storing user data (localStorage for demo)
+        const userData = {
+          name,
+          email,
+          phone,
+          password
+        };
+
+        localStorage.setItem("registeredUser", JSON.stringify(userData));
+        alert("Registration successful! Redirecting to login...");
+
+        window.location.href = "login.html";
+      });
+    });
+  </script>
+
+</body>
+</html>

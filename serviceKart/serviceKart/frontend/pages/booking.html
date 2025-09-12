@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book a Service - ServiceKart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    body {
+  background: #fff;
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+#servicesGrid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.service-card {
+  background: #f8f8f8;
+  border-radius: 15px;
+  padding: 30px 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.service-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.book-btn {
+  margin-top: 10px;
+  padding: 8px 20px;
+  border: none;
+  background: #005fcc;
+  color: #fff;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.book-btn:hover {
+  background: #333;
+}
+
+main.container {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px 25px;
+  max-width: 500px;
+  width: 90%;
+  margin: 40px auto 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  color: #000;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #000;
+}
+
+form label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 500;
+  color: #000;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: #fff;
+  color: #000;
+  outline: none;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+input[type="file"] {
+  background: transparent;
+  color: #000;
+  border: none;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 25px;
+  border: none;
+  border-radius: 30px;
+  background:#005fcc ;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: #333;
+  transform: scale(1.05);
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  text-decoration: underline;
+  align-self: flex-start;
+}
+
+@media (max-width: 500px) {
+  main.container {
+    padding: 20px;
+  }
+  .service-title {
+    font-size: 1.1rem;
+  }
+  .service-card {
+    padding: 20px 10px;
+  }
+}
+
+      
+    
+  </style>
+</head>
+<body>
+  <div data-include="../components/header.html"></div>
+
+  <h1>Select a Service to Book</h1>
+  <div id="servicesGrid">
+    <div class="service-card" data-service="Plumber">
+      <div class="service-icon">🛠️</div>
+      <div class="service-title">Plumber</div>
+      <button class="book-btn">Book Now</button>
+    </div>
+    <div class="service-card" data-service="Electrician">
+      <div class="service-icon">💡</div>
+      <div class="service-title">Electrician</div>
+      <button class="book-btn">Book Now</button>
+    </div>
+    <div class="service-card" data-service="Cleaner">
+      <div class="service-icon">🧹</div>
+      <div class="service-title">Cleaning</div>
+      <button class="book-btn">Book Now</button>
+    </div>
+    <div class="service-card" data-service="Beautician">
+      <div class="service-icon">💇‍♀️</div>
+      <div class="service-title">Saloon</div>
+      <button class="book-btn">Book Now</button>
+    </div>
+    <div class="service-card" data-service="AC Repair">
+      <div class="service-icon">🔧</div>
+      <div class="service-title">AC Repair</div>
+      <button class="book-btn">Book Now</button>
+    </div>
+    <div class="service-card" data-service="Carpentry">
+      <div class="service-icon">🪑</div>
+      <div class="service-title">Carpentry</div>
+      <button class="book-btn">Book Now</button>
+    </div>
+  </div>
+
+  <main class="container" id="bookingFormContainer">
+    <button class="back-btn" id="backToServices">&larr; Back to Services</button>
+    <h2>Book a Home Service</h2>
+    <form id="bookingForm" enctype="multipart/form-data">
+      <label for="serviceType">Select Service:</label>
+      <select id="serviceType" required>
+        <option value="">Choose...</option>
+        <option value="Electrician">Electrician</option>
+        <option value="Cleaner">Cleaner</option>
+        <option value="Plumber">Plumber</option>
+        <option value="Beautician">Beautician</option>
+        <option value="Carpentry">Carpentry</option>
+        <option value="AC Repair">AC Repair</option>
+      </select>
+
+      <label for="slot">Preferred Time Slot:</label>
+      <input type="datetime-local" id="slot" required />
+
+      <label for="description">Describe the Problem:</label>
+      <textarea id="description" rows="4" required></textarea>
+
+      <label for="imageUpload">Upload Image:</label>
+      <input type="file" id="imageUpload" accept="image/*" />
+      <a href="bookservices.html" class="btn">Book Now</a>
+    </form>
+  </main>
+
+  <div data-include="../components/footer.html"></div>
+
+  <script src="../js/user.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    document.querySelectorAll('[data-include]').forEach(async el => {
+      const file = el.getAttribute('data-include');
+      try {
+        const response = await fetch(file);
+        const html = await response.text();
+        el.innerHTML = html;
+      } catch (e) {
+        el.innerHTML = "Failed to load component.";
+        console.error(`Error loading ${file}:`, e);
+      }
+    });
+
+    function showBookingForm(selectedService) {
+      document.getElementById('servicesGrid').style.display = 'none';
+      const formContainer = document.getElementById('bookingFormContainer');
+      formContainer.classList.add('show');
+      const dropdown = document.getElementById('serviceType');
+      dropdown.value = selectedService || "";
+      window.scrollTo(0, 0);
+    }
+
+    document.getElementById('backToServices').addEventListener('click', () => {
+      const formContainer = document.getElementById('bookingFormContainer');
+      formContainer.classList.remove('show');
+      setTimeout(() => {
+        formContainer.style.display = 'none';
+        document.getElementById('servicesGrid').style.display = 'grid';
+      }, 300);
+    });
+
+    document.querySelectorAll('.book-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const card = e.target.closest('.service-card');
+        if (card) {
+          const service = card.getAttribute('data-service');
+          showBookingForm(service);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
